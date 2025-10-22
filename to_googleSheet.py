@@ -4,13 +4,11 @@ import json
 from typing import List, Dict, Any
 
 
-JSON_IDENTITY = '64_unified'
+JSON_IDENTITY = '64'
 
 #for ID: https://docs.google.com/spreadsheets/d/THIS_IS_THE_ID/edit#gid=0
 SPREADSHEET_ID = '1OpaPaAgZ8GYe5upqgxkmDIk80-WQ2OJFyQE7ruHzODA' 
 SERVICE_ACCOUNT_FILE = 'service_account.json'
-JSON_DATA_PATH = '/Users/norranyu/Documents/coding/2025_programs/data_management/training_data_output/'+JSON_IDENTITY+'_network.json'
-WORKSHEET_NAME = JSON_IDENTITY
 
 def load_data_from_json(file_path: str) -> List[Dict[str, Any]]:
     """
@@ -122,6 +120,18 @@ def write_data_to_sheets(spreadsheet_id: str, worksheet_name: str, data: List[Di
 
 
 if __name__ == "__main__":
+    
+    choice = input("Enter 1 for unified and 2 for enlarged: ")
+
+    if choice == 1:
+        JSON_DATA_PATH = '/Users/norranyu/Documents/coding/2025_programs/data_management/training_data_output/'+JSON_IDENTITY+'_unified_network.json'
+        WORKSHEET_NAME = JSON_IDENTITY + '_unified'
+    elif choice == 2:
+        JSON_DATA_PATH = '/Users/norranyu/Documents/coding/2025_programs/data_management/training_data_output/'+JSON_IDENTITY+'_enlarged.json'
+        WORKSHEET_NAME = JSON_IDENTITY + '_specific'
+    else:
+        print("Process aborted")
+
     if SPREADSHEET_ID == '': #safety
         print("Please update the SPREADSHEET_ID variable before running")
     else:
