@@ -121,30 +121,21 @@ def write_data_to_sheets(spreadsheet_id: str, worksheet_name: str, data: List[Di
 
 if __name__ == "__main__":
     
-    choice = input("Enter 1 for unified and 2 for enlarged: ")
+    choice = int(input("Enter 1 for unified and 2 for enlarged: "))
 
     if choice == 1:
         JSON_DATA_PATH = '/Users/norranyu/Documents/coding/2025_programs/data_management/training_data_output/'+JSON_IDENTITY+'_unified_network.json'
         WORKSHEET_NAME = JSON_IDENTITY + '_unified'
-
-        if SPREADSHEET_ID == '': #safety
-            print("Please update the SPREADSHEET_ID variable before running")
-        else:
-            results_data = load_data_from_json(JSON_DATA_PATH)
-
-            if results_data:
-                write_data_to_sheets(SPREADSHEET_ID, WORKSHEET_NAME, results_data)
     elif choice == 2:
         JSON_DATA_PATH = '/Users/norranyu/Documents/coding/2025_programs/data_management/training_data_output/'+JSON_IDENTITY+'_enlarged.json'
         WORKSHEET_NAME = JSON_IDENTITY + '_specific'
-
-        if SPREADSHEET_ID == '': #safety
-            print("Please update the SPREADSHEET_ID variable before running")
-        else:
-            results_data = load_data_from_json(JSON_DATA_PATH)
-
-            if results_data:
-                write_data_to_sheets(SPREADSHEET_ID, WORKSHEET_NAME, results_data)
-        
     else:
         print("Process aborted")
+
+    if SPREADSHEET_ID == '': #safety
+        print("Please update the SPREADSHEET_ID variable before running")
+    else:
+        results_data = load_data_from_json(JSON_DATA_PATH)
+
+        if results_data:
+            write_data_to_sheets(SPREADSHEET_ID, WORKSHEET_NAME, results_data)
