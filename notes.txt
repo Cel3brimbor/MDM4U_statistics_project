@@ -1,0 +1,6 @@
+Training with 7 epochs because that is usually more than enough to see if the current model is going to improve its accuracy. 
+Model either gets 50% accuracy (random guessing) or 86% (optimal). 
+Early stopping tracks accuracy and has a patience of 3. This works similarly to the epoch settings to ensure efficiency. 
+
+
+Zooming in means incrementing the l2 before accuracy drop by a factor of 10.

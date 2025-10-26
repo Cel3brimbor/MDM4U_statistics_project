@@ -1,0 +1,27 @@
+[
+    {
+        "width": 64,
+        "threshold": 0.00430,
+        "specific threshold": 0.00424
+    },
+    {
+        "width": 128,
+        "threshold": 0.00240,
+        "specific threshold": 0.00234
+    },
+    {
+        "width": 256,
+        "threshold": 0.00100,
+        "specific threshold": 0.00092
+    },
+    {
+        "width": 512,
+        "threshold": 0.00030,
+        "specific threshold": 0.00029
+    },
+    {
+        "width": 1024,
+        "threshold": 0.00010,
+        "specific threshold": 0.00007
+    }
+]
