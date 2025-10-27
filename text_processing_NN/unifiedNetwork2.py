@@ -42,16 +42,15 @@ if physical_devices:
 else:
     print("\nGPU is not yet detected\n")
 
-output_folder = DATASET_NAME+"_datasets"
+output_folder = DATASET_NAME
 train_path = os.path.join(output_folder, DATASET_NAME+"_train.csv")
 test_path = os.path.join(output_folder, DATASET_NAME + "_test.csv")
 
 try:
-    train_df = pd.read_csv(train_path)
-    test_df = pd.read_csv(test_path)
+    train_df = pd.read_csv(train_path, header=None, names=['label', 'text'])
+    test_df = pd.read_csv(test_path, header=None, names=['label', 'text'])
 except FileNotFoundError:
     print(f"Error: Required files ({train_path} or {test_path}) were not found in local directory.")
-    print("Please ensure you have generated the 'imdb_train.csv' and 'imdb_test.csv' files.")
     exit()
 
 train_df['text'] = train_df['text'].fillna('').astype(str)
