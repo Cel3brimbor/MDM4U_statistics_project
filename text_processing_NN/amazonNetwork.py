@@ -14,11 +14,11 @@ MAX_REGULARIZER = 5.0000
 REGULARIZER_STEP = 0.1000
 NEURONS = 512 
 
-DATASET_NAME = "amazon_polarity_datasets_500k"
+DATASET_NAME = "amazon_polarity_datasets_100k"
 OUTPUT_JSON_FILE = f"{DATASET_NAME}_trainingResults/{NEURONS}_unified_network.json"
 
 LEARNING_RATE = 0.001
-BATCH_SIZE = 64
+BATCH_SIZE = 512 
 PATIENCE = 3
 DROPOUT = 0.0
 
@@ -47,8 +47,16 @@ train_path = os.path.join(output_folder, DATASET_NAME+"_train.csv")
 test_path = os.path.join(output_folder, DATASET_NAME + "_test.csv")
 
 try:
-    train_df = pd.read_csv(train_path, header=None, names=['label', 'text'])
-    test_df = pd.read_csv(test_path, header=None, names=['label', 'text'])
+    train_df = pd.read_csv(train_path, 
+                           header=None, 
+                           names=['label', 'title', 'text'], 
+                           dtype={'label': np.int32}, 
+                           skiprows=1)
+    test_df = pd.read_csv(test_path, 
+                          header=None, 
+                          names=['label', 'title', 'text'], 
+                          dtype={'label': np.int32}, 
+                          skiprows=1)
 except FileNotFoundError:
     print(f"Error: Required files ({train_path} or {test_path}) were not found in local directory.")
     exit()
@@ -58,9 +66,10 @@ test_df['text'] = test_df['text'].fillna('').astype(str)
 
 all_texts = train_df['text'].tolist() + test_df['text'].tolist()
 train_texts = train_df['text'].tolist()
-train_labels = np.array(train_df['label'])
+
+train_labels = np.array(train_df['label']) - 1
 test_texts = test_df['text'].tolist()
-test_labels = np.array(test_df['label'])
+test_labels = np.array(test_df['label']) - 1
 
 train_texts, val_texts, train_labels, val_labels = train_test_split(
     train_texts, train_labels, test_size=0.1, random_state=42
@@ -110,6 +119,8 @@ def build_model(regularizer_strength):
 
 results = []
 current_regularizer = INITIAL_REGULARIZER
+
+os.makedirs(os.path.dirname(OUTPUT_JSON_FILE), exist_ok=True)
 
 while current_regularizer <= MAX_REGULARIZER:
     
