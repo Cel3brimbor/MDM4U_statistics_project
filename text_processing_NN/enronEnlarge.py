@@ -8,17 +8,18 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import os
 import json
-import copy 
 
-INITIAL_REGULARIZER = 0.0000
-MAX_REGULARIZER = 0.0015
-REGULARIZER_STEP = 0.0001
-OUTPUT_JSON_FILE = "training_data_output/64_network.json"
+INITIAL_REGULARIZER = 0.0700
+MAX_REGULARIZER = 0.0800
+REGULARIZER_STEP = 0.0010
+NEURONS = 128
 
-DATASET_NAME = "imdb"
+DATASET_NAME = "enron"
+OUTPUT_JSON_FILE = f"{DATASET_NAME}_trainingResults/{NEURONS}_enlarged.json"
+
 LEARNING_RATE = 0.001
 BATCH_SIZE = 64
-PATIENCE = 10
+PATIENCE = 3
 DROPOUT = 0.0
 
 VOCAB_SIZE = 10000
@@ -52,6 +53,9 @@ except FileNotFoundError:
     print(f"Error: Required files ({train_path} or {test_path}) were not found in local directory.")
     print("Please ensure you have generated the 'imdb_train.csv' and 'imdb_test.csv' files.")
     exit()
+
+train_df['text'] = train_df['text'].fillna('').astype(str)
+test_df['text'] = test_df['text'].fillna('').astype(str)
 
 all_texts = train_df['text'].tolist() + test_df['text'].tolist()
 train_texts = train_df['text'].tolist()
@@ -93,11 +97,11 @@ def build_model(regularizer_strength):
 
     x = GlobalAveragePooling1D(name="pooling_layer")(x)
     
-    x = Dense(64, activation="relu", kernel_regularizer=l2(regularizer_strength), name="dense_1_l2")(x)
+    x = Dense(NEURONS, activation="relu", kernel_regularizer=l2(regularizer_strength), name="dense_1_l2")(x)
     x = tf.keras.layers.Dropout(DROPOUT)(x)
-    x = Dense(32, activation="relu", kernel_regularizer=l2(regularizer_strength), name="dense_2_l2")(x)
+    x = Dense(NEURONS, activation="relu", kernel_regularizer=l2(regularizer_strength), name="dense_2_l2")(x)
     x = tf.keras.layers.Dropout(DROPOUT)(x)
-    x = Dense(16, activation="relu", kernel_regularizer=l2(regularizer_strength), name="dense_3_l2")(x)
+    x = Dense(NEURONS, activation="relu", kernel_regularizer=l2(regularizer_strength), name="dense_3_l2")(x)
     
     outputs = Dense(1, activation="sigmoid", name="output_layer")(x)
 
@@ -111,7 +115,7 @@ current_regularizer = INITIAL_REGULARIZER
 while current_regularizer <= MAX_REGULARIZER:
     
     print("\n" + "="*70)
-    print(f"--- Training with L2 Regularizer: {current_regularizer:.4f} ---")
+    print(f"--- Training with L2 Regularizer: {current_regularizer:.5f} ---")
     print("="*70)
 
     #build new
@@ -126,20 +130,20 @@ while current_regularizer <= MAX_REGULARIZER:
     )
 
     callbacks = [
-        EarlyStopping(monitor='val_loss', patience=PATIENCE, restore_best_weights=True)
+        EarlyStopping(monitor='val_accuracy', patience=PATIENCE, restore_best_weights=True)
     ]
 
     history = model.fit(
         train_data,
         train_labels,
         batch_size=BATCH_SIZE,
-        epochs=100, 
+        epochs=7, 
         validation_data=(val_data, val_labels),
         callbacks=callbacks,
         verbose=1 
     )
     
-    test_loss, test_acc = model.evaluate(test_data, test_labels, verbose=0)
+    test_loss, test_acc = model.evaluate(test_data, test_labels, verbose=1)
     
     best_epoch = np.argmin(history.history['val_loss'])
     final_train_loss = history.history['loss'][best_epoch]

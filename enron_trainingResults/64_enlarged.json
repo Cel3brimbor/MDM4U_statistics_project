@@ -1,0 +1,90 @@
+[
+    {
+        "l2_regularizer": 0.09,
+        "best_epoch": 7,
+        "train_loss": "0.2320",
+        "train_accuracy": "97.66%",
+        "eval_loss": "0.2603",
+        "eval_accuracy": "98.13%"
+    },
+    {
+        "l2_regularizer": 0.091,
+        "best_epoch": 4,
+        "train_loss": "0.6934",
+        "train_accuracy": "50.32%",
+        "eval_loss": "0.7081",
+        "eval_accuracy": "52.27%"
+    },
+    {
+        "l2_regularizer": 0.092,
+        "best_epoch": 7,
+        "train_loss": "0.2302",
+        "train_accuracy": "97.73%",
+        "eval_loss": "0.2265",
+        "eval_accuracy": "98.21%"
+    },
+    {
+        "l2_regularizer": 0.093,
+        "best_epoch": 7,
+        "train_loss": "0.2316",
+        "train_accuracy": "97.74%",
+        "eval_loss": "0.2609",
+        "eval_accuracy": "98.12%"
+    },
+    {
+        "l2_regularizer": 0.094,
+        "best_epoch": 4,
+        "train_loss": "0.6935",
+        "train_accuracy": "50.53%",
+        "eval_loss": "0.7066",
+        "eval_accuracy": "50.93%"
+    },
+    {
+        "l2_regularizer": 0.095,
+        "best_epoch": 3,
+        "train_loss": "0.6932",
+        "train_accuracy": "50.58%",
+        "eval_loss": "0.7043",
+        "eval_accuracy": "50.93%"
+    },
+    {
+        "l2_regularizer": 0.096,
+        "best_epoch": 2,
+        "train_loss": "0.6946",
+        "train_accuracy": "50.63%",
+        "eval_loss": "0.7070",
+        "eval_accuracy": "50.93%"
+    },
+    {
+        "l2_regularizer": 0.097,
+        "best_epoch": 6,
+        "train_loss": "0.2558",
+        "train_accuracy": "97.37%",
+        "eval_loss": "0.3332",
+        "eval_accuracy": "97.12%"
+    },
+    {
+        "l2_regularizer": 0.098,
+        "best_epoch": 2,
+        "train_loss": "0.6944",
+        "train_accuracy": "50.65%",
+        "eval_loss": "0.7033",
+        "eval_accuracy": "50.93%"
+    },
+    {
+        "l2_regularizer": 0.099,
+        "best_epoch": 3,
+        "train_loss": "0.6933",
+        "train_accuracy": "50.40%",
+        "eval_loss": "0.7039",
+        "eval_accuracy": "50.93%"
+    },
+    {
+        "l2_regularizer": 0.1,
+        "best_epoch": 3,
+        "train_loss": "0.6933",
+        "train_accuracy": "50.79%",
+        "eval_loss": "0.7059",
+        "eval_accuracy": "50.93%"
+    }
+]
