@@ -9,10 +9,10 @@ from sklearn.model_selection import train_test_split
 import os
 import json
 
-INITIAL_REGULARIZER = 0.0700
-MAX_REGULARIZER = 0.0800
+INITIAL_REGULARIZER = 0.0100
+MAX_REGULARIZER = 0.0200
 REGULARIZER_STEP = 0.0010
-NEURONS = 128
+NEURONS = 1024
 
 DATASET_NAME = "enron"
 OUTPUT_JSON_FILE = f"{DATASET_NAME}_trainingResults/{NEURONS}_enlarged.json"
