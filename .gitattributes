@@ -1,3 +1,4 @@
 amazon_polarity_datasets_100k/*.csv filter=lfs diff=lfs merge=lfs -text
-enron_spam_ham_datasets/*.csv filter=lfs diff=lfs merge=lfs -text
+enron_datasets/*.csv filter=lfs diff=lfs merge=lfs -text
 imdbLimited_datasets/*.csv filter=lfs diff=lfs merge=lfs -text
+imdb_datasets/*.csv filter=lfs diff=lfs merge=lfs -text
