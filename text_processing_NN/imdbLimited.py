@@ -9,13 +9,13 @@ from sklearn.model_selection import train_test_split
 import os
 import json
 
-INITIAL_REGULARIZER = 0.0100
-MAX_REGULARIZER = 0.0200
-REGULARIZER_STEP = 0.0010
-NEURONS = 1024
+INITIAL_REGULARIZER = 0.0000
+MAX_REGULARIZER = 0.0050
+REGULARIZER_STEP = 0.0001
+NEURONS = 256 
 
-DATASET_NAME = "enron"
-OUTPUT_JSON_FILE = f"{DATASET_NAME}_trainingResults/{NEURONS}_enlarged.json"
+DATASET_NAME = "imdbLimited"
+OUTPUT_JSON_FILE = f"{DATASET_NAME}_trainingResults/{NEURONS}_unified_network.json"
 
 LEARNING_RATE = 0.001
 BATCH_SIZE = 64
@@ -51,6 +51,7 @@ try:
     test_df = pd.read_csv(test_path)
 except FileNotFoundError:
     print(f"Error: Required files ({train_path} or {test_path}) were not found in local directory.")
+    print("Please ensure you have generated the 'imdb_train.csv' and 'imdb_test.csv' files.")
     exit()
 
 train_df['text'] = train_df['text'].fillna('').astype(str)
@@ -136,7 +137,7 @@ while current_regularizer <= MAX_REGULARIZER:
         train_data,
         train_labels,
         batch_size=BATCH_SIZE,
-        epochs=7, 
+        epochs=15, 
         validation_data=(val_data, val_labels),
         callbacks=callbacks,
         verbose=1 
