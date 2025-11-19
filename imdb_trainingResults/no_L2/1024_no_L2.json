@@ -1,0 +1,50 @@
+[
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 3,
+        "train_loss": "0.5345",
+        "train_accuracy": "83.27%",
+        "eval_loss": "0.7514",
+        "eval_accuracy": "85.12%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 3,
+        "train_loss": "0.2913",
+        "train_accuracy": "88.08%",
+        "eval_loss": "0.3339",
+        "eval_accuracy": "86.33%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 2,
+        "train_loss": "0.3231",
+        "train_accuracy": "86.44%",
+        "eval_loss": "0.3636",
+        "eval_accuracy": "85.72%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 4,
+        "train_loss": "0.3679",
+        "train_accuracy": "84.98%",
+        "eval_loss": "0.3909",
+        "eval_accuracy": "82.95%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 2,
+        "train_loss": "0.3527",
+        "train_accuracy": "84.56%",
+        "eval_loss": "0.3541",
+        "eval_accuracy": "84.24%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 3,
+        "train_loss": "0.2559",
+        "train_accuracy": "89.86%",
+        "eval_loss": "0.3317",
+        "eval_accuracy": "85.99%"
+    }
+]

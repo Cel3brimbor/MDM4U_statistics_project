@@ -1,0 +1,82 @@
+[
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 4,
+        "train_loss": "0.2366",
+        "train_accuracy": "90.83%",
+        "eval_loss": "0.3654",
+        "eval_accuracy": "85.20%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 3,
+        "train_loss": "0.2913",
+        "train_accuracy": "88.08%",
+        "eval_loss": "0.3440",
+        "eval_accuracy": "85.56%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 3,
+        "train_loss": "0.3105",
+        "train_accuracy": "87.48%",
+        "eval_loss": "0.3224",
+        "eval_accuracy": "86.71%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 4,
+        "train_loss": "0.3168",
+        "train_accuracy": "87.09%",
+        "eval_loss": "0.3397",
+        "eval_accuracy": "86.29%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 3,
+        "train_loss": "0.3064",
+        "train_accuracy": "87.72%",
+        "eval_loss": "0.3252",
+        "eval_accuracy": "86.27%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 2,
+        "train_loss": "0.2917",
+        "train_accuracy": "87.93%",
+        "eval_loss": "0.3566",
+        "eval_accuracy": "84.08%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 2,
+        "train_loss": "0.3328",
+        "train_accuracy": "86.17%",
+        "eval_loss": "0.3239",
+        "eval_accuracy": "86.62%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 4,
+        "train_loss": "0.2831",
+        "train_accuracy": "88.85%",
+        "eval_loss": "0.3904",
+        "eval_accuracy": "84.54%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 2,
+        "train_loss": "0.3128",
+        "train_accuracy": "86.56%",
+        "eval_loss": "0.3731",
+        "eval_accuracy": "84.90%"
+    },
+    {
+        "l2_regularizer": 0.0,
+        "best_epoch": 2,
+        "train_loss": "0.3118",
+        "train_accuracy": "86.87%",
+        "eval_loss": "0.3258",
+        "eval_accuracy": "86.31%"
+    }
+]
