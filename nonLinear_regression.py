@@ -21,10 +21,10 @@ plt.scatter(X, Y, label='Original Data Points', color='blue', marker='o', s=100)
 
 for i in range(len(X)):
     plt.annotate(f'{X[i]}', (X[i], Y[i]), 
-                 textcoords="offset points", 
-                 xytext=(0, 10),
-                 ha='center', 
-                 fontsize=9)
+    textcoords="offset points", 
+    xytext=(0, 10),
+    ha='center', 
+    fontsize=9)
 
 plt.plot(X_fit, Y_fit, label=f'Fit: y = {A0_fit:.4f}$e^{{-{k_fit:.4f}x}}$', color='red', linestyle='--')
 
