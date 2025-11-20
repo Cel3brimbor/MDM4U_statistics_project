@@ -17,15 +17,25 @@ Y_fit = exponential_decay(X_fit, A0_fit, k_fit)
 
 plt.figure(figsize=(10, 6))
 
-plt.scatter(X, Y, label='Original Data', color='blue', marker='o', s=100)
+plt.scatter(X, Y, label='Original Data Points', color='blue', marker='o', s=100)
+
+for i in range(len(X)):
+    plt.annotate(f'{X[i]}', (X[i], Y[i]), 
+                 textcoords="offset points", 
+                 xytext=(0, 10),
+                 ha='center', 
+                 fontsize=9)
 
 plt.plot(X_fit, Y_fit, label=f'Fit: y = {A0_fit:.4f}$e^{{-{k_fit:.4f}x}}$', color='red', linestyle='--')
 
-plt.title('Maximum $\lambda$ Before Underfitting vs. Neurons per Layer', fontsize=14)
+plt.title('Maximum $\lambda$ Before Irreversible Underfitting vs. Neurons per Layer', fontsize=14)
 plt.xlabel('Neurons per Layer', fontsize=12)
 plt.ylabel('Maximum $\lambda$ Before Underfitting', fontsize=12)
 
+plt.ylim(-0.0005, 0.005)
 plt.legend(fontsize=10)
 plt.grid(True, linestyle=':', alpha=0.6)
 
 plt.savefig('exponential_decay_fit.png')
+
+#plt.show()
