@@ -1,6 +1,6 @@
 
 
-**Scaling the Maximum L2​ Regularisation Strength with Width in a Fixed-Layer Neural Network**
+###Scaling the Maximum L2​ Regularisation Strength with Width in a Fixed-Layer Neural Network
 
 Norran Yu
 
